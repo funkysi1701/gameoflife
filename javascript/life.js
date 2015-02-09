@@ -39,6 +39,8 @@ function neighbors(x, y) {
     return total;
 }
 var age = 0; //defines a variable to keep track of length of game
+var neighboursLimit = 3; //defines the limit of number of neighbours before death
+
 function generation() {
     var newworld = cloneWorld();
 	age++; //increments age of game each generation;
@@ -46,10 +48,10 @@ function generation() {
     for (var x = 0; x < worldx; ++x) {
 	for (var y = 0; y < worldy; ++y) {
 	    var ncnt = neighbors(x, y);
-	    if (ncnt === 3) {
+	    if (ncnt === neighboursLimit) {
 		newworld[x][y] = 1;
 	    }
-	    else if ((ncnt < 2) || (ncnt  > 3)) {
+	    else if ((ncnt < neighboursLimit-1) || (ncnt  > neighboursLimit)) {
 		newworld[x][y] = 0;
 	    }
 	}
