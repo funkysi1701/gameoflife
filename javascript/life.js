@@ -38,10 +38,10 @@ function neighbors(x, y) {
 
     return total;
 }
-
+var age = 0; //defines a variable to keep track of length of game
 function generation() {
     var newworld = cloneWorld();
-
+	age++; //increments age of game each generation;
     for (var x = 0; x < worldx; ++x) {
 	for (var y = 0; y < worldy; ++y) {
 	    var ncnt = neighbors(x, y);
